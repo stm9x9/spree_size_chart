@@ -7,7 +7,13 @@ require 'spree/testing_support/common_rake'
 
 RSpec::Core::RakeTask.new
 
-task :default => [:spec]
+task :default do
+  if Dir["spec/dummy"].empty?
+    Rake::Task[:test_app].invoke
+    Dir.chdir("../../")
+  end
+  Rake::Task[:spec].invoke
+end
 
 spec = eval(File.read('spree_size_chart.gemspec'))
 
@@ -27,3 +33,4 @@ task :test_app do
   ENV['LIB_NAME'] = 'spree_size_chart'
   Rake::Task['common:test_app'].invoke
 end
+

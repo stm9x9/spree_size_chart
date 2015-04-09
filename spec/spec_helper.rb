@@ -16,7 +16,6 @@ require 'spree/testing_support/capybara_ext'
 
 require 'factories'
 require 'ffaker'
-require 'debugger'
 RSpec.configure do |config|
   # == Mock Framework
   #

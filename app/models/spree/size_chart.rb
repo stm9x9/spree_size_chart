@@ -14,7 +14,7 @@ module Spree
     has_many    :size_values, :class_name => "Spree::SizeValue"
 
     accepts_nested_attributes_for :size_values, :allow_destroy => true
-    attr_accessible :size_values_attributes, :size_type_ids, :unit, :option_type_id, :prototype_id
+    # attr_accessible :size_values_attributes, :size_type_ids, :unit, :option_type_id, :prototype_id
 
     before_save :set_prototype_size_types, :if => 'prototype_id_changed?'
 
