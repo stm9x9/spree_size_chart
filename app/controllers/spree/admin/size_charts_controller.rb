@@ -26,7 +26,21 @@ module Spree
       private
 
       def permitted_resource_params
-        params.require(:size_chart).permit(:id, :name, :product_id, :option_type_id, :unit, :prototype_id, size_type_ids:[])
+        params.require(:size_chart).permit(:id,
+                                           :name,
+                                           :product_id,
+                                           :option_type_id,
+                                           :unit,
+                                           :prototype_id,
+                                           size_type_ids: [],
+                                           size_values_attributes: [
+                                               :id,
+                                               :value,
+                                               :option_value_id,
+                                               :size_type_id,
+                                               :size_chart_id
+                                           ])
+
       end
     end
   end
